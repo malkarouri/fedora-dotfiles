@@ -22,3 +22,6 @@ antigen theme robbyrussell
 
 # Tell antigen that you're done.
 antigen apply
+
+
+if [ -e /home/vagrant/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vagrant/.nix-profile/etc/profile.d/nix.sh; fi

@@ -30,3 +30,7 @@ antigen apply
 if [ -e /home/vagrant/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vagrant/.nix-profile/etc/profile.d/nix.sh; fi
 
 alias clean='find . -name "*~" -o -name "#*#" | xargs -r rm'
+
+case $- in *i*)
+  if [ -z "$TMUX" ]; then exec tmux; fi;;
+esac

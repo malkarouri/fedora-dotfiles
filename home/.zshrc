@@ -34,3 +34,5 @@ alias clean='find . -name "*~" -o -name "#*#" | xargs -r rm'
 case $- in *i*)
   if [ -z "$TMUX" ]; then exec tmux; fi;;
 esac
+
+setopt PRINT_EXIT_VALUE

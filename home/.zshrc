@@ -32,7 +32,15 @@ if [ -e /home/vagrant/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vagrant/
 alias clean='find . -name "*~" -o -name "#*#" | xargs -r rm'
 
 case $- in *i*)
-  if [ -z "$TMUX" ]; then exec tmux; fi;;
+  if [ -z "$TMUX" ]
+  then
+    if tmux has
+    then
+      exec tmux attach
+    else
+      exec tmux new
+    fi
+  fi
 esac
 
 setopt PRINT_EXIT_VALUE

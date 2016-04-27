@@ -1,8 +1,19 @@
+(setq package-list '(anaphora async dash flycheck epl git-commit let-alist magit magit-popup multi-term pkg-info seq with-editor workgroups2))
+
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; http://stackoverflow.com/questions/10092322/how-to-automatically-install-emacs-packages-by-specifying-a-list-of-package-name
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 
 (setq inhibit-startup-message t)
 

@@ -23,6 +23,9 @@ antigen theme robbyrussell
 # alias tips
 antigen bundle djui/alias-tips
 
+# ssh agent
+antigen bundle ssh-agent
+
 # Tell antigen that you're done.
 antigen apply
 
@@ -44,3 +47,5 @@ case $- in *i*)
 esac
 
 setopt PRINT_EXIT_VALUE
+
+eval "$(direnv hook zsh)"
